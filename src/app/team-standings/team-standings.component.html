@@ -16,7 +16,6 @@
         border: 1px solid black;
         font-size: 11px;
         text-align: center;
-        margin: 15px;
         padding: 5px;
         background-color: whitesmoke;
 
@@ -24,6 +23,12 @@
 
     table {
         margin-left: 4%;
+    }
+
+    .thStyle {
+        background-color: lightsteelblue;
+        color: black;
+        text-align: center
     }
 
     h3 {
@@ -65,20 +70,20 @@
         <h5><u>Standings:</u></h5>
         <table style="text-align: center; font-size: 10px;">
             <tr>
-                <th class="smallTable">Team Name</th>
-                <th class="smallTable">Rank</th>
-                <th class="smallTable">%</th>
-                <th class="smallTable">Played</th>
-                <th class="smallTable">Wins</th>
-                <th class="smallTable">Losses</th>
-                <th class="smallTable">Draws</th>
-                <th class="smallTable">Points</th>
-                <th class="smallTable">Against</th>
-                <th class="smallTable">For</th>
-                <th class="smallTable">Behinds<br>For</th>
-                <th class="smallTable">Behinds<br>Against</th>
-                <th class="smallTable">Goals<br>For</th>
-                <th class="smallTable">Goals<br>Against</th>
+                <th class="smallTable thStyle">Team Name</th>
+                <th class="smallTable thStyle">Rank</th>
+                <th class="smallTable thStyle">%</th>
+                <th class="smallTable thStyle">Played</th>
+                <th class="smallTable thStyle">Wins</th>
+                <th class="smallTable thStyle">Losses</th>
+                <th class="smallTable thStyle">Draws</th>
+                <th class="smallTable thStyle">Points</th>
+                <th class="smallTable thStyle">Against</th>
+                <th class="smallTable thStyle">For</th>
+                <th class="smallTable thStyle">Behinds<br>For</th>
+                <th class="smallTable thStyle">Behinds<br>Against</th>
+                <th class="smallTable thStyle">Goals<br>For</th>
+                <th class="smallTable thStyle">Goals<br>Against</th>
             </tr>
             <tr>
                 <td class="smallTable">{{standingsTeam.name}}</td>

@@ -35,18 +35,6 @@
     font-style: italic;
   }
 
-  .header {
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 20px;
-    padding-bottom: 10px;
-    padding-top: 20px;
-    padding-right: 20px;
-    font-size: 24px;
-    color: black;
-    text-align: left;
-    font-weight: bold;
-  }
-
   .myList {
     margin-top: 1%;
     margin-left: 4%;
@@ -70,26 +58,32 @@
     margin: 20px;
     padding: 5px;
     background-color: whitesmoke;
-
   }
+  th {
+        background-color: lightsteelblue;
+        color: black;
+        text-align: center
+    }
 
   h3 {
     margin-left: 4%;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   hr {
-    margin: 2px;
+    margin-left: 2px;
   }
 </style>
 
 <span><br></span>
-<span class="bar">
-  <h3 style="font-size: 26px; font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+<span class="bar" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+  <h3
+    style="margin-left: 0; font-size: 30px; font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  text-shadow: 2px 2px 4px #000000;">
     Highlights</h3>
 </span>
 <span><br></span>
 
+<div style="margin: 0.5%; padding: 1%; background-color: snow; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 <!-- Current Standings of all teams -->
 <h3>Current Standings</h3>
 <hr>
@@ -124,7 +118,7 @@
 <form>
   <h3>Tips by Source</h3>
   <hr>
-  <h5>Select a source to see the </h5>
+  <h5>Select a source to see the tips for the following matches.</h5>
   <select class="myList" (change)="onSelect($event.target.value)">
     <option>Select a source</option>
     <option *ngFor="let source of sources" [ngValue]="source">{{source.name}}</option>
@@ -133,3 +127,5 @@
   <app-tips-table [source]="sourceInfo"></app-tips-table>
 
 </form>
+<br>
+</div>

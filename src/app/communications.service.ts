@@ -18,7 +18,7 @@ export class CommunicationsService {
   constructor(private http: HttpClient) { }
 
   // Get all teams
-  getTeams() : Observable<Team[]> {
+  getTeams(): Observable<Team[]> {
     return this.http.get('https://api.squiggle.com.au/?q=teams').pipe(
       map((data: any) => data.teams.map((item: any) => new Team(
         item.logo,
@@ -30,7 +30,7 @@ export class CommunicationsService {
   }
 
   // Get tips from year: 2019 and round: 20
-  getTips() : Observable<Tip[]> {
+  getTips(): Observable<Tip[]> {
     return this.http.get('https://api.squiggle.com.au/?q=tips;year=2020;round=2').pipe(
       map((data: any) => data.tips.map((item: any) => new Tip(
         item.confidence,
@@ -57,10 +57,8 @@ export class CommunicationsService {
     );
   }
 
-
-
   // Get games from year 2019
-  getGames() : Observable<Game[]> {
+  getGames(): Observable<Game[]> {
     return this.http.get('https://api.squiggle.com.au/?q=games;year=2019').pipe(
       map((data: any) => data.games.map((item: any) => new Game(
         item.complete,
@@ -86,11 +84,11 @@ export class CommunicationsService {
         item.date,
         item.id
       )))
-    );  
+    );
   }
 
   // Get tips from year: 2020 and the next round to happen (round: 2)
-  get2020PredictionsR1() : Observable<Tip[]> {
+  get2020PredictionsR1(): Observable<Tip[]> {
     var link = 'https://api.squiggle.com.au/?q=tips;year=2020;round=2';
     return this.http.get(link).pipe(
       map((data: any) => data.tips.map((item: any) => new Tip(
@@ -119,7 +117,7 @@ export class CommunicationsService {
   }
 
   // Get all games registered
-  getAllGames() : Observable<Game[]> {
+  getAllGames(): Observable<Game[]> {
     return this.http.get('https://api.squiggle.com.au/?q=games').pipe(
       map((data: any) => data.games.map((item: any) => new Game(
         item.complete,
@@ -145,12 +143,13 @@ export class CommunicationsService {
         item.date,
         item.id
       )))
-    );  
+    );
   }
 
-  getStandings() : Observable<Standings[]> {
+  // Get current team standings
+  getStandings(): Observable<Standings[]> {
     return this.http.get('https://api.squiggle.com.au/?q=standings').pipe(
-      map((data:any) => data.standings.map((item: any) => new Standings(
+      map((data: any) => data.standings.map((item: any) => new Standings(
         item.against,
         item.behinds_against,
         item.behinds_for,
@@ -170,9 +169,10 @@ export class CommunicationsService {
     );
   }
 
-  getSources(): Observable<Source[]>{
+  // Get all sources for tips
+  getSources(): Observable<Source[]> {
     return this.http.get('https://api.squiggle.com.au/?q=sources').pipe(
-      map((data:any) => data.sources.map((item: any) => new Source(
+      map((data: any) => data.sources.map((item: any) => new Source(
         item.name,
         item.url,
         item.icon,

@@ -35,18 +35,6 @@
         font-style: italic;
     }
 
-    .header {
-        font-family: Arial, Helvetica, sans-serif;
-        padding-left: 20px;
-        padding-bottom: 10px;
-        padding-top: 20px;
-        padding-right: 20px;
-        font-size: 24px;
-        color: black;
-        text-align: left;
-        font-weight: bold;
-    }
-
     .myList {
         margin: 20px;
     }
@@ -60,16 +48,23 @@
         text-align: center;
         margin: 20px;
         padding: 5px;
-        background-color: whitesmoke;
+        background-color:lightsteelblue;
+    }
+    th {
+        background-color: lightsteelblue;
+        color: black;
     }
 </style>
 
 <!--Results for all the 2019 matches of a team selected-->
 <span><br></span>
-<span class="bar">
-    <h3 style="font-size: 26px; font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Matches
+<span class="bar"
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  text-shadow: 2px 2px 4px #000000;">
+    <h3 style="font-size: 30px; font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Matches
     </h3>
 </span>
+<br>
+<div style="margin: 0.5%; padding: 1%; background-color: snow; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 <form>
     <p>
         <select class="myList" (change)="onSelect($event.target.value)">
@@ -82,7 +77,5 @@
     <app-game-info [team]="selectedTeam"></app-game-info>
 
 </form>
-
-
-
-<span><br></span>
+<br>
+</div>

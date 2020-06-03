@@ -18,6 +18,12 @@
         margin-left: 4%;
     }
 
+    th {
+        background-color: lightsteelblue;
+        color: black;
+        text-align: center
+    }
+
     h1 {
         margin-left: 20px;
         font-size: 18px;
@@ -84,6 +90,9 @@
     .btn:hover {
         background: #e11c35
     }
+    .btn {
+        background-color: lightsteelblue;
+    }
 </style>
 <!--Results for all the games the team has played this season-->
 <div>
@@ -110,7 +119,7 @@
         
         <!-- Team Matches Information -->
 
-        <button type="button" class="btn btn-light" (click)="loadMatches()">2019 Matches
+        <button type="button" class="btn" (click)="loadMatches()">2019 Matches
             <span class="glyphicon glyphicon-chevron-down"></span>
         </button>
         <!-- Displays team's matches of 2019 venues using team as Input when matchesLoad = true -->
