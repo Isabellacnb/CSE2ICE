@@ -1,0 +1,70 @@
+<style>
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+
+    table {
+        margin-left: 4%;
+    }
+
+    h3 {
+        margin-left: 4%;
+        font-size: 16px;
+    }
+
+    hr {
+        margin: 2px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 5px;
+        margin-left: 40px;
+    }
+
+    h5 {
+        font-size: 15px;
+        margin: 5px;
+        margin-left: 4%;
+        color: dimgray;
+        font-weight: lighter;
+    }
+</style>
+
+<!-- Team Predictions for Next Game Information -->
+<h3>Predictions for next game: </h3>
+<hr>
+<h5>Predictions by different sources on the next recorded game of {{teamName}}.</h5>
+<br>
+<p><b>Game: </b>{{gameHTeam}} VS. {{gameATeam}}</p>
+<p><b>Date </b>{{gameDate | date: 'MMM d, y - h:mm a'}}</p>
+<p><b>Round: </b>{{gameRound}}</p>
+<p><b>Venue: </b>{{gameVenue}}</p>
+
+<table style="text-align: center">
+    <tr>
+        <th>Source</th>
+        <th>Tip</th>
+        <th>Confidence</th>
+        <th>Margin</th>
+        <th>Updated</th>
+
+    </tr>
+    <tr *ngFor="let tip of predictionsR1">
+        <td>{{tip.source}}</td>
+        <td>{{tip.tip}}</td>
+        <td>{{tip.confidence}}</td>
+        <td>{{tip.margin}}</td>
+        <td>{{tip.updated | date: 'MMM d, y - h:mm a'}}</td> <!-- A datePipe is included for formatting the date -->
+
+    </tr>
+</table>

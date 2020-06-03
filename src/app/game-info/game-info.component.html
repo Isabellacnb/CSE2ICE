@@ -1,0 +1,60 @@
+<style>
+    .myList {
+        margin: 20px;
+    }
+
+    h3 {
+        margin-left: 30px;
+        font-size: 16px;
+    }
+
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+    table {
+        margin-left: 4%;
+    }
+
+    h5 {
+        font-size: 15px;
+        margin: 5px;
+        margin-left: 4%;
+        color: dimgray;
+        font-weight: lighter;
+    }
+</style>
+
+<div>
+    <div *ngIf="team">
+        <hr>
+        <h5>{{teamName}} 2019 Matches</h5>
+        <!-- Team 2019 Matches Information -->
+        <table style="text-align: center">
+            <tr>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Date</th>
+                <th>Score</th>
+                <th>Winner</th>
+                <th>Round</th>
+            </tr>
+            <tr *ngFor="let game of games">
+                <td>{{game.hteam}}</td>
+                <td>{{game.ateam}}</td>
+                <td>{{game.date | date: 'MMM d, y - h:mm a'}}</td>
+                <td>{{game.hscore}} - {{game.ascore}}</td>
+                <td>{{game.winner}}</td>
+                <td>{{game.round}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

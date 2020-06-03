@@ -1,0 +1,39 @@
+<style>
+      table,
+  th,
+  td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size: 14px;
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+    background-color: whitesmoke;
+  }
+
+  h3 {
+    margin-left: 4%;
+    font-size: 16px;
+  }
+
+  hr {
+    margin: 2px;
+  }
+</style>
+<div *ngIf = gameDate>
+    <table>
+        <tr>
+          <th>Date</th>
+          <th>Game</th>
+          <th>Venue</th>
+          <th>Round</th>
+        </tr>
+        <tr *ngFor="let game of upcomingGamesOnDate">
+          <td>{{game.date | date: 'MMM d, y - h:mm a'}}</td> <!-- datePipe to format the game date -->
+          <td>{{game.hteam}} VS. {{game.ateam}}</td>
+          <td>{{game.venue}}</td>
+          <td>{{game.round}}</td>
+        </tr>
+    </table>
+</div>
+

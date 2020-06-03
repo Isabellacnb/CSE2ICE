@@ -1,0 +1,37 @@
+<style>
+
+.table-list {
+    column-count: 2;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color:whitesmoke;
+    border-style: solid;
+    text-align: left;
+    width: 50%;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.table-list li {
+  list-style-type: circle;
+  width: 80%;
+}
+
+.table-list li:hover {
+    background-color: lightgray;
+    font-weight: bold;
+}
+li:nth-child(even) {background-color: #f2f2f2;}
+
+
+</style>
+
+<!-- Teams List -->
+<div>
+    <ul class="table-list">
+        <li class="items" *ngFor="let team of teams" (click)="onSelect(team)">
+            {{team.name}}
+        </li>
+    </ul>
+    <app-team-info *ngIf="selectedTeam" [team]="selectedTeam"></app-team-info>
+</div>

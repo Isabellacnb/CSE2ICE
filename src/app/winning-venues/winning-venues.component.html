@@ -1,0 +1,49 @@
+<style>
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 14px;
+        text-align: left;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    table {
+        margin-left: 4%;
+    }
+
+    h3 {
+        margin-left: 4%;
+        font-size: 16px;
+    }
+
+    hr {
+        margin: 2px;
+    }
+    h5 {
+    font-size: 15px;
+    margin: 5px;
+    margin-left: 4%;
+    color: dimgray;
+    font-weight: lighter;
+  }
+</style>
+<!-- Team Winning Venues Information -->
+<h3>Winning Venues: </h3>
+<hr>
+<h5>The venues where {{teamName}} has won.</h5>
+<table style="text-align: center">
+    <tr>
+        <th style="text-align: center">Venue</th>
+    </tr>
+    <tr *ngFor="let game of gamesVenues">
+        <td>{{game.venue}}</td>
+    </tr>
+</table>

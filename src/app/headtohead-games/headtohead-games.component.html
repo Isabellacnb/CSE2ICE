@@ -1,0 +1,19 @@
+<style>
+    select {
+        margin-left: 8%;
+        font-size: 14px;
+        margin-top: 2%;
+    }
+</style>
+
+<!-- Head-to-head games (upcoming games and season reasults) -->
+<form>
+    <p>
+        <select class="myList" (change)="onSelect($event.target.value)">
+            <option>All Teams</option>
+            <option *ngFor="let team of teams" ngValue="team">{{team.name}}</option>
+        </select>
+    </p>
+</form>
+<!-- Displays opponent games and team information using currentTeam and selectedTeam as Input -->
+<app-opponent-games [opponentTeam]="selectedTeam" [cTeam]="currentTeam"></app-opponent-games>

@@ -1,0 +1,126 @@
+<style>
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+    .smallTable {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 11px;
+        text-align: center;
+        margin: 15px;
+        padding: 5px;
+        background-color: whitesmoke;
+
+    }
+
+    table {
+        margin-left: 4%;
+    }
+
+    h3 {
+        margin-left: 4%;
+        font-size: 16px;
+    }
+
+    h5 {
+        margin-left: 4%;
+        font-size: 14px;
+    }
+
+    hr {
+        margin: 2px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 5px;
+        margin-left: 40px;
+    }
+
+    .one {
+        float: left;
+    }
+
+    .two {
+        margin-left: 40%;
+    }
+
+    .opponentGamesInfo {
+        height: 150px;
+        width: 300px;
+        margin: 5%;
+    }
+</style>
+<div>
+    <div *ngIf="opponentTeam">
+        <!-- Team vs Opponent Team Game Information -->
+        <h3>Head-to-head games: </h3>
+        <hr>
+        <br>
+        <h5><u>Game Information:</u></h5>
+        <table style="text-align: center">
+            <tr>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Score</th>
+                <th>Winner</th>
+                <th>Round</th>
+            </tr>
+            <tr *ngFor="let game of games">
+                <td>{{game.hteam}}</td>
+                <td>{{game.ateam}}</td>
+                <td>{{game.date | date: 'MMM d, y - h:mm a'}}</td>
+                <td>{{game.hscore}} - {{game.ascore}}</td>
+                <td>{{game.winner}}</td>
+                <td>{{game.round}}</td>
+
+            </tr>
+        </table>
+        <br>
+        <h5><u>Standings:</u></h5>
+        <table style="text-align: center; font-size: 10px;">
+            <tr>
+                <th class="smallTable">Team Name</th>
+                <th class="smallTable">Rank</th>
+                <th class="smallTable">%</th>
+                <th class="smallTable">Played</th>
+                <th class="smallTable">Wins</th>
+                <th class="smallTable">Losses</th>
+                <th class="smallTable">Draws</th>
+                <th class="smallTable">Points</th>
+                <th class="smallTable">Against</th>
+                <th class="smallTable">For</th>
+                <th class="smallTable">Behinds<br>For</th>
+                <th class="smallTable">Behinds<br>Against</th>
+                <th class="smallTable">Goals<br>For</th>
+                <th class="smallTable">Goals<br>Against</th>
+            </tr>
+            <tr *ngFor="let standings of arrayStandings">
+                <td class="smallTable">{{standings.name}}</td>
+                <td class="smallTable">{{standings.rank}}</td>
+                <td class="smallTable">{{standings.percentage | number:'1.0-1' }}%</td>
+                <td class="smallTable">{{standings.played}}</td>
+                <td class="smallTable">{{standings.wins}}</td>
+                <td class="smallTable">{{standings.losses}}</td>
+                <td class="smallTable">{{standings.draws}}</td>
+                <td class="smallTable">{{standings.pts}}</td>
+                <td class="smallTable">{{standings.against}}</td>
+                <td class="smallTable">{{standings._for}}</td>
+                <td class="smallTable">{{standings.behinds_for}}</td>
+                <td class="smallTable">{{standings.behinds_against}}</td>
+                <td class="smallTable">{{standings.goals_for}}</td>
+                <td class="smallTable">{{standings.goals_against}}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,93 @@
+<style>
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+    table {
+        margin-left: 4%;
+    }
+
+    h1 {
+        margin-left: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    h3 {
+        margin-left: 4%;
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 5px;
+        margin-left: 40px;
+    }
+
+    h5 {
+        font-size: 15px;
+        margin: 5px;
+        margin-left: 35px;
+    }
+
+    .one {
+        float: left;
+    }
+
+    .two {
+        margin-left: 40%;
+    }
+
+    .opponentGamesInfo {
+        height: 150px;
+        width: 300px;
+        margin: 5%;
+    }
+
+    hr {
+        margin: 2px;
+    }
+</style>
+
+<!-- Team Opponent Game Details for following 5 matches Information -->
+<h3>Opponent Game Details for following 5 matches: </h3>
+<hr>
+<div class="container">
+    <div class="one">
+        <div class="opponentGamesInfo" *ngFor="let game of opponentGames">
+            <h5>{{game.hteam}} VS. {{game.ateam}}</h5>
+            <p>Round: {{game.round}}</p>
+            <p>Date: {{game.date | date: 'MMM d, y - h:mm a'}}</p>
+            <p>Year: {{game.year}}</p>
+            <p>Venue: {{game.venue}}</p>
+        </div>
+        <br>
+    </div>
+    <div class="two">
+        <div class="opponentGamesInfo" *ngFor="let team of opponentTeamInfo">
+            <table style="text-align: center">
+                <tr>
+                    <th>ID</th>
+                    <th>Logo</th>
+                    <th>Team Name</th>
+                    <th>Abbrev</th>
+                </tr>
+                <tr>
+                    <td>{{team.id}}</td>
+                    <td><img src="https://squiggle.com.au/{{team.logo}}" style="width: 30px; height: 30px;"></td>
+                    <td>{{team.name}}</td>
+                    <td>{{team.abbrev}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<style>
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+    .smallTable {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 11px;
+        text-align: center;
+        margin: 15px;
+        padding: 5px;
+        background-color: whitesmoke;
+
+    }
+
+    table {
+        margin-left: 4%;
+    }
+
+    h3 {
+        margin-left: 4%;
+        font-size: 16px;
+    }
+
+    h5 {
+        margin-left: 4%;
+        font-size: 14px;
+    }
+
+    hr {
+        margin: 2px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 5px;
+        margin-left: 40px;
+    }
+
+    .one {
+        float: left;
+    }
+
+    .two {
+        margin-left: 40%;
+    }
+
+    .opponentGamesInfo {
+        height: 150px;
+        width: 300px;
+        margin: 5%;
+    }
+</style>
+<div>
+    <div *ngIf="standingsTeam">
+        <h5><u>Standings:</u></h5>
+        <table style="text-align: center; font-size: 10px;">
+            <tr>
+                <th class="smallTable">Team Name</th>
+                <th class="smallTable">Rank</th>
+                <th class="smallTable">%</th>
+                <th class="smallTable">Played</th>
+                <th class="smallTable">Wins</th>
+                <th class="smallTable">Losses</th>
+                <th class="smallTable">Draws</th>
+                <th class="smallTable">Points</th>
+                <th class="smallTable">Against</th>
+                <th class="smallTable">For</th>
+                <th class="smallTable">Behinds<br>For</th>
+                <th class="smallTable">Behinds<br>Against</th>
+                <th class="smallTable">Goals<br>For</th>
+                <th class="smallTable">Goals<br>Against</th>
+            </tr>
+            <tr>
+                <td class="smallTable">{{standingsTeam.name}}</td>
+                <td class="smallTable">{{standingsTeam.rank}}</td>
+                <td class="smallTable">{{standingsTeam.percentage | number:'1.0-1' }}%</td>
+                <td class="smallTable">{{standingsTeam.played}}</td>
+                <td class="smallTable">{{standingsTeam.wins}}</td>
+                <td class="smallTable">{{standingsTeam.losses}}</td>
+                <td class="smallTable">{{standingsTeam.draws}}</td>
+                <td class="smallTable">{{standingsTeam.pts}}</td>
+                <td class="smallTable">{{standingsTeam.against}}</td>
+                <td class="smallTable">{{standingsTeam._for}}</td>
+                <td class="smallTable">{{standingsTeam.behinds_for}}</td>
+                <td class="smallTable">{{standingsTeam.behinds_against}}</td>
+                <td class="smallTable">{{standingsTeam.goals_for}}</td>
+                <td class="smallTable">{{standingsTeam.goals_against}}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>

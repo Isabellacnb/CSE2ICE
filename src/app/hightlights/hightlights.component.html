@@ -1,0 +1,135 @@
+<style>
+  .bar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: #05549c;
+    color: #F6F6F6;
+    font-weight: 600;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 50px;
+    margin-left: none;
+  }
+
+  .pageIntro {
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: black;
+  }
+
+  .note {
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+    font-style: italic;
+  }
+
+  .header {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-right: 20px;
+    font-size: 24px;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .myList {
+    margin-top: 1%;
+    margin-left: 4%;
+  }
+
+  h5 {
+    font-size: 15px;
+    margin: 5px;
+    margin-left: 4%;
+    color: dimgray;
+    font-weight: lighter;
+  }
+
+  table,
+  th,
+  td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-size: 14px;
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+    background-color: whitesmoke;
+
+  }
+
+  h3 {
+    margin-left: 4%;
+    font-size: 16px;
+  }
+
+  hr {
+    margin: 2px;
+  }
+</style>
+
+<span><br></span>
+<span class="bar">
+  <h3 style="font-size: 26px; font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    Highlights</h3>
+</span>
+<span><br></span>
+
+<!-- Current Standings of all teams -->
+<h3>Current Standings</h3>
+<hr>
+<h5>See the current team rankings.</h5>
+<table>
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+  </tr>
+  <tr *ngFor="let standings of standingsRanked">
+    <td>{{standings.rank}}</td>
+    <td>{{standings.name}}</td>
+  </tr>
+</table>
+
+<!-- Upcomings games of all teams by date -->
+<form>
+  <h3>Upcoming Games</h3>
+  <hr>
+  <h5>See the upcoming games by date.</h5>
+
+  <select class="myList" (change)="onSelectDate($event.target.value)">
+    <option>Select a date</option>
+    <option *ngFor="let game of upcomingGames" [ngValue]="game">{{game.date | date: 'MMM d, y'}}</option>
+  </select>
+  <!-- Displays upcoming games using stringDate as Input -->
+  <app-upcoming-games [gameDate]="stringDate"></app-upcoming-games>
+
+</form>
+
+<!-- All upcoming games' tips by source-->
+<form>
+  <h3>Tips by Source</h3>
+  <hr>
+  <h5>Select a source to see the </h5>
+  <select class="myList" (change)="onSelect($event.target.value)">
+    <option>Select a source</option>
+    <option *ngFor="let source of sources" [ngValue]="source">{{source.name}}</option>
+  </select>
+  <!-- Displays table of tips using a given source (sourceInfo) as Input -->
+  <app-tips-table [source]="sourceInfo"></app-tips-table>
+
+</form>

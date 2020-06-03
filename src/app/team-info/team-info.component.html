@@ -1,0 +1,161 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<style>
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+    table {
+        margin-left: 4%;
+    }
+
+    h1 {
+        margin-left: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    h3 {
+        margin-left: 4%;
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 5px;
+        margin-left: 40px;
+    }
+
+    h5 {
+        font-size: 15px;
+        margin: 5px;
+        margin-left: 35px;
+    }
+
+
+    .one {
+        float: left;
+    }
+
+    .two {
+        margin-left: 40%;
+    }
+
+    .opponentGamesInfo {
+        height: 150px;
+        width: 300px;
+        margin: 5%;
+    }
+
+    button {
+        margin-left: 5%;
+        height: auto;
+        width: auto;
+    }
+
+    hr {
+        margin: 2px;
+    }
+
+    .btn {
+        font-size: 14px;
+        margin-left: 5%;
+        margin-bottom: 1%;
+    }
+
+    .btn:active {
+        background: #e11c35;
+    }
+
+    .btn:focus {
+        background: #e11c35;
+    }
+
+    .btn:hover {
+        background: #e11c35
+    }
+</style>
+<!--Results for all the games the team has played this season-->
+<div>
+    <div *ngIf="team">
+        <h1><b>{{team.name}}</b></h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>LOGO</th>
+                <th>TEAM NAME</th>
+                <th>ABBREVIATION</th>
+            </tr>
+            <tr>
+                <td>{{team.id}}</td>
+                <td><img src="https://squiggle.com.au/{{team.logo}}"></td>
+                <td>{{team.name}}</td>
+                <td>{{team.abbrev}}</td>
+            </tr>
+        </table>
+        <br>
+
+        <h3><b>Suggested Information</b></h3> <br>
+
+        
+        <!-- Team Matches Information -->
+
+        <button type="button" class="btn btn-light" (click)="loadMatches()">2019 Matches
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </button>
+        <!-- Displays team's matches of 2019 venues using team as Input when matchesLoad = true -->
+        <app-game-info *ngIf="matchesLoad" [team]="team"></app-game-info>
+        <br>
+
+
+        <!-- Team Winning Venues Information -->
+
+        <button type="button" class="btn btn-light" (click)="loadVenues()">Winning Venues
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </button>
+        <!-- Displays team's winning venues using team as Input when venueLoad = true -->
+        <app-winning-venues *ngIf="venueLoad" [team]="team"></app-winning-venues>
+        <br>
+
+
+        <!-- Team Predictions for Next Game Information -->
+
+        <button type="button" class="btn btn-light" (click)="loadPredictions()">Predictions
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </button>
+        <!-- Displays team predictions for the next game using team as Input when predictionLoad = true -->
+        <app-predictions *ngIf="predictionLoad" [team]="team"></app-predictions>
+        <br>
+
+
+        <!-- Team Opponent Game Details for following 5 matches Information -->
+
+        <button type="button" class="btn btn-light" (click)="loadNextMatches()">Next 5 Matches
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </button>
+        <!-- Displays Opponent Game Details using team as Input when nextMatchesLoad = true -->
+        <app-next5-games *ngIf="nextMatchesLoad" [team]="team"></app-next5-games>
+        <br>
+
+
+        <!-- Head-to-head games (upcoming games and season reasults) -->
+
+        <button type="button" class="btn btn-light" (click)="loadHeadtoHeadGames()">Head to Head Games
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </button>
+        <!-- Displays Head-to-Head games using team as Input when headtoHeadLoad = true -->
+        <app-headtohead-games *ngIf="headtoHeadLoad" [currentTeam]="team"></app-headtohead-games>
+        <br>
+
+    </div>
+</div>

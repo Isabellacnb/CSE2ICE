@@ -1,0 +1,73 @@
+<style>
+  .bar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: #05549c;
+    color: #F6F6F6;
+    font-weight: 600;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 50px;
+    margin-left: none;
+  }
+
+  .pageIntro {
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: black;
+  }
+
+  .note {
+    text-align: left;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+    font-style: italic;
+  }
+
+  .header {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-right: 20px;
+    font-size: 24px;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  form {
+    margin-left: 2%;
+  }
+</style>
+
+<span><br></span>
+<span class="bar">
+  <h3 style="font-size: 26px; font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">My
+    Favourite Team</h3>
+</span>
+<br>
+<form>
+  <p><b>Select your favourite team: </b>
+    <select class="myList" (change)="onSelect($event.target.value)">
+      <option disbaled>Teams</option>
+      <option *ngFor="let team of teams" [ngValue]=team>{{team.name}}</option>
+    </select>
+  </p>
+  <br>
+
+  <!-- Displays Team Information component using selectedTeam as Input -->
+  <app-team-info [team]="selectedTeam"></app-team-info>
+
+</form>

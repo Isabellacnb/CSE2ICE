@@ -1,0 +1,97 @@
+<style>
+    .table-list {
+        column-count: 2;
+        margin-left: 20px;
+        margin-right: 20px;
+        background-color: whitesmoke;
+        border-style: solid;
+        text-align: left;
+        width: 50%;
+        padding-left: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .smallTable {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 11px;
+        text-align: center;
+        margin: 15px;
+        padding: 5px;
+        background-color: whitesmoke;
+
+    }
+
+    .table-list li {
+        list-style-type: circle;
+        width: 80%;
+    }
+
+    .table-list li:hover {
+        background-color: lightgray;
+        font-weight: bold;
+    }
+
+    hr {
+        margin: 2px;
+    }
+
+    li:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+    h3 {
+        margin-left: 4%;
+        font-size: 16px;
+    }
+
+    h1 {
+        margin-left: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+</style>
+
+<!-- Teams List -->
+<div>
+    <ul class="table-list">
+        <li class="items" *ngFor="let team of teams" (click)="onSelect(team)">
+            {{team.name}}
+        </li>
+    </ul>
+</div>
+<br>
+<div *ngIf="selectedTeam">
+    <h1><b>{{selectedTeam.name}}</b></h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>LOGO</th>
+            <th>TEAM NAME</th>
+            <th>ABBREVIATION</th>
+        </tr>
+        <tr>
+            <td>{{selectedTeam.id}}</td>
+            <td><img src="https://squiggle.com.au/{{selectedTeam.logo}}"></td>
+            <td>{{selectedTeam.name}}</td>
+            <td>{{selectedTeam.abbrev}}</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Displays Team Standings using selectedTeam as Input -->
+<app-team-standings [team]="selectedTeam"></app-team-standings>

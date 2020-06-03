@@ -1,0 +1,63 @@
+<style>
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        font-size: 12px;
+        text-align: center;
+        margin: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+    }
+
+
+    table {
+        margin-left: 4%;
+    }
+
+    h3 {
+        margin-left: 4%;
+        font-size: 16px;
+    }
+
+    hr {
+        margin: 2px;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 5px;
+        margin-left: 40px;
+    }
+</style>
+
+<div *ngIf="source">
+
+    <table style="text-align: center; border: none;">
+        <tr>
+            <th><a href="{{sourceUrl}}"><img src="https://squiggle.com.au{{sourceIcon}}" /></a></th>
+        </tr>
+    </table>
+    <table style="text-align: center">
+        <tr>
+            <th>Game</th>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>Tip</th>
+            <th>Home Confidence</th>
+            <th>Away Confidence</th>
+            <th>Updated</th>
+
+        </tr>
+        <tr *ngFor="let tip of sourceTips">
+            <td>{{tip.hteam}} VS. {{tip.ateam}}</td>
+            <td>{{tip.date | date: 'MMM d, y - h:mm a'}}</td>
+            <td>{{tip.venue}}</td>
+            <td>{{tip.tip}}</td>
+            <td>{{tip.hconfidence}}</td>
+            <td>{{tip.confidence}}</td>
+            <td>{{tip.updated | date: 'MMM d - y, h:mm a'}}</td>
+        </tr>
+    </table>
+</div>
